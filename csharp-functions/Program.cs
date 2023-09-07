@@ -3,9 +3,31 @@
 //Programma
 
 int[] numeri = { 2, 6, 7, 5, 3, 9 };
+Console.Write("Array base: ");
 StampaArray(numeri);
 
+Console.Write("Array con elementi al quadrato: ");
+StampaArray(ElevaArrayAlQuadrato(numeri));
 
+Console.Write("Ristampa Array base non modificato: ");
+StampaArray(numeri);
+
+Console.Write("Stampa somma di tutti i numeri: ");
+Console.WriteLine(sommaElementiArray(numeri));
+
+Console.Write("Stampa somma di tutti i numeri elevati al quadrato: ");
+Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(numeri)));
+
+
+
+
+
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine();
+Console.WriteLine("Made by Leonardo Serra aka daruma_beats classe-07");
+Console.WriteLine();
+Console.WriteLine();
 
 
 //Utility Functions
@@ -23,6 +45,7 @@ void StampaArray(int[] array)
             Console.Write($"{array[i]}");
     }
     Console.Write("]");
+    Console.WriteLine();
 }
 
 //      restituisca il quadrato del numero passato come parametro.
