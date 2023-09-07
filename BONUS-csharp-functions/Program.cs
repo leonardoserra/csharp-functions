@@ -3,17 +3,22 @@
 //Programma
 Console.WriteLine("Versione BONUS");
 Console.WriteLine();
-Console.WriteLine("Ciao Carissimo, digita un numero intero per decidere di quanti elementi è composto il nostro array");
+Console.Write("Ciao Carissimo, digita un numero intero per decidere di quanti elementi è composto il nostro array: ");
 int.TryParse(Console.ReadLine(), out int dimensioneArray); 
 int[] usedArray = new int[dimensioneArray];
 
-Console.WriteLine("Bene adesso inserisci i numeri interi che verranno allocati in ogni cella dell' array: ");
-for(int i = 0; i < usedArray.Length; i++)
+Console.WriteLine();
+Console.WriteLine("Bene adesso inserisci i numeri interi che verranno allocati in ogni cella dell' array! ");
+Console.WriteLine();
+
+for (int i = 0; i < usedArray.Length; i++)
 {
     Console.Write($"Restano ancora {usedArray.Length - i} celle da riempire, digita il numero: ");
     int.TryParse(Console.ReadLine(), out int numInserito);
     usedArray[i] = numInserito;
 }
+
+Console.WriteLine();
 Console.Write("Array base: ");
 StampaArray(usedArray);
 
@@ -23,6 +28,7 @@ StampaArray(ElevaArrayAlQuadrato(usedArray));
 Console.Write("Ristampa Array base non modificato: ");
 StampaArray(usedArray);
 
+Console.WriteLine();
 Console.Write("Stampa somma di tutti i numeri: ");
 Console.WriteLine(sommaElementiArray(usedArray));
 
