@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+//Programma
 
-
+int[] numeri = { 2, 6, 7, 5, 3, 9 };
+StampaArray(numeri);
 
 
 
