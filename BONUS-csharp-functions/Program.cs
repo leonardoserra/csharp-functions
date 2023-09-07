@@ -3,28 +3,33 @@
 //Programma
 Console.WriteLine("Versione BONUS");
 Console.WriteLine();
+Console.WriteLine("Ciao Carissimo, digita un numero intero per decidere di quanti elementi è composto il nostro array");
+int.TryParse(Console.ReadLine(), out int dimensioneArray); 
+int[] usedArray = new int[dimensioneArray];
 
-
-int[] numeri = { 2, 6, 7, 5, 3, 9 };
+Console.WriteLine("Bene adesso inserisci i numeri interi che verranno allocati in ogni cella dell' array: ");
+for(int i = 0; i < usedArray.Length; i++)
+{
+    Console.Write($"Restano ancora {usedArray.Length - i} celle da riempire, digita il numero: ");
+    int.TryParse(Console.ReadLine(), out int numInserito);
+    usedArray[i] = numInserito;
+}
 Console.Write("Array base: ");
-StampaArray(numeri);
+StampaArray(usedArray);
 
 Console.Write("Array con elementi al quadrato: ");
-StampaArray(ElevaArrayAlQuadrato(numeri));
+StampaArray(ElevaArrayAlQuadrato(usedArray));
 
 Console.Write("Ristampa Array base non modificato: ");
-StampaArray(numeri);
+StampaArray(usedArray);
 
 Console.Write("Stampa somma di tutti i numeri: ");
-Console.WriteLine(sommaElementiArray(numeri));
+Console.WriteLine(sommaElementiArray(usedArray));
 
 Console.Write("Stampa somma di tutti i numeri elevati al quadrato: ");
-Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(numeri)));
+Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(usedArray)));
 
-
-
-
-
+//credits
 Console.WriteLine();
 Console.WriteLine();
 Console.WriteLine();
