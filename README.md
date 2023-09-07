@@ -17,7 +17,7 @@
 4. int sommaElementiArray(int[] array): che preso un array di numeri interi, 
     restituisca la somma totale di tutti gli elementi dell’array.
 
-==================================================================
+==================================================================  
 Una volta completate queste funzioni di utilità di base, e dato il seguente array di numeri [2, 6, 7, 5, 3, 9]
     già dichiarato nel vostro codice, si vogliono utilizzare le funzioni per:  
 
