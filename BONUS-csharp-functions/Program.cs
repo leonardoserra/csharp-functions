@@ -9,11 +9,11 @@ bool programStarting = true;
 while (programStarting)
 {
     Console.Write("Ciao Carissimo, digita un numero intero per decidere di quanti elementi è composto il nostro array: ");
-    int.TryParse(Console.ReadLine(), out int dimensioneArray);
-    Type intCheck = dimensioneArray.GetType();
+    bool intCheck = int.TryParse(Console.ReadLine(), out int dimensioneArray);
+    //Type intCheck = dimensioneArray.GetType();
     Type acceptedTypeInt = typeof(int);
 
-    if (intCheck == acceptedTypeInt)
+    if (intCheck)
         {
         int[] usedArray = new int[dimensioneArray];
 
@@ -24,22 +24,23 @@ while (programStarting)
         for (int i = 0; i < usedArray.Length; i++)
         {
             Console.Write($"Restano ancora {usedArray.Length - i} celle da riempire, digita il numero: ");
-            bool isNotInteger = false;
-            do
+            //bool isNotInteger = false;
+            bool retryAllocation = true;
+            while (retryAllocation)
             {
-                int.TryParse(Console.ReadLine(), out int numInserito);
-                Type input = numInserito.GetType();
-                if (input == acceptedTypeInt)
+                bool isInteger = int.TryParse(Console.ReadLine(), out int numInserito);
+                
+                if (isInteger)
                 {
                     usedArray[i] = numInserito;
+                    retryAllocation = false;
                 }
                 else
                 {
-                    isNotInteger = true;
                     Console.Write($"Inserire solo numeri interi... riprova. Restano ancora {usedArray.Length - i} celle da riempire, digita il numero: ");
-                    continue;
+                    //continue;
                 }
-            } while (isNotInteger);
+            }
         }
 
         Console.WriteLine();
