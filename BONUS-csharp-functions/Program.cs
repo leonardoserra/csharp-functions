@@ -3,38 +3,70 @@
 //Programma
 Console.WriteLine("Versione BONUS");
 Console.WriteLine();
-Console.Write("Ciao Carissimo, digita un numero intero per decidere di quanti elementi è composto il nostro array: ");
-int.TryParse(Console.ReadLine(), out int dimensioneArray); 
-int[] usedArray = new int[dimensioneArray];
-
-Console.WriteLine();
-Console.WriteLine("Bene adesso inserisci i numeri interi che verranno allocati in ogni cella dell' array! ");
-Console.WriteLine();
-
-for (int i = 0; i < usedArray.Length; i++)
+bool flag = true;
+while (flag)
 {
-    Console.Write($"Restano ancora {usedArray.Length - i} celle da riempire, digita il numero: ");
-    int.TryParse(Console.ReadLine(), out int numInserito);
-    usedArray[i] = numInserito;
+    Console.Write("Ciao Carissimo, digita un numero intero per decidere di quanti elementi è composto il nostro array: ");
+    int.TryParse(Console.ReadLine(), out int dimensioneArray);
+    Type intCheck = dimensioneArray.GetType();
+    Console.WriteLine($"Cosa ce dentro il tipo: {intCheck}");
+    if (intCheck != typeof(System.Int32))
+    {
+        Console.WriteLine("Inserisci solo numeri interi please... riprova");
+        continue;
+    }
+
+    int[] usedArray = new int[dimensioneArray];
+
+    Console.WriteLine();
+    Console.WriteLine("Bene adesso inserisci i numeri interi che verranno allocati in ogni cella dell' array! ");
+    Console.WriteLine();
+
+    for (int i = 0; i < usedArray.Length; i++)
+    {
+        Console.Write($"Restano ancora {usedArray.Length - i} celle da riempire, digita il numero: ");
+        int.TryParse(Console.ReadLine(), out int numInserito);
+        usedArray[i] = numInserito;
+    }
+
+    Console.WriteLine();
+    Console.Write("Array base: ");
+    StampaArray(usedArray);
+
+    Console.Write("Array con elementi al quadrato: ");
+    StampaArray(ElevaArrayAlQuadrato(usedArray));
+
+    Console.Write("Ristampa Array base non modificato: ");
+    StampaArray(usedArray);
+
+    Console.WriteLine();
+    Console.Write("Stampa somma di tutti i numeri: ");
+    Console.WriteLine(sommaElementiArray(usedArray));
+
+    Console.Write("Stampa somma di tutti i numeri elevati al quadrato: ");
+    Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(usedArray)));
+    Console.WriteLine("Chiudere il programma? Si | No");
+    string answer = Console.ReadLine().ToLower();
+    if (answer == "si" || answer == "yes" || answer == "s" || answer == "y")
+        flag = false;
+    else if (answer == "no" || answer == "n")
+    {
+        Console.WriteLine("Ripristino...");
+        Console.WriteLine("...........");
+        Console.WriteLine(".......");
+        Console.WriteLine("....");
+        Console.WriteLine("...");
+        Console.WriteLine("..");
+        Console.WriteLine("Completo!");
+        Console.WriteLine();
+
+    }
+    else
+    {
+        Console.WriteLine("Input non valido mascalzone, chiusura in corso");
+        flag = false;
+    }
 }
-
-Console.WriteLine();
-Console.Write("Array base: ");
-StampaArray(usedArray);
-
-Console.Write("Array con elementi al quadrato: ");
-StampaArray(ElevaArrayAlQuadrato(usedArray));
-
-Console.Write("Ristampa Array base non modificato: ");
-StampaArray(usedArray);
-
-Console.WriteLine();
-Console.Write("Stampa somma di tutti i numeri: ");
-Console.WriteLine(sommaElementiArray(usedArray));
-
-Console.Write("Stampa somma di tutti i numeri elevati al quadrato: ");
-Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(usedArray)));
-
 //credits
 Console.WriteLine();
 Console.WriteLine();
