@@ -48,7 +48,8 @@ while (programStarting)
         StampaArray(usedArray);
 
         Console.Write("Array con elementi al quadrato: ");
-        StampaArray(ElevaArrayAlQuadrato(usedArray));
+        int[] arrayQuadrato = ElevaArrayAlQuadrato(usedArray);
+        StampaArray(arrayQuadrato);
 
         Console.Write("Ristampa Array base non modificato: ");
         StampaArray(usedArray);
@@ -58,7 +59,7 @@ while (programStarting)
         Console.WriteLine(sommaElementiArray(usedArray));
 
         Console.Write("Stampa somma di tutti i numeri elevati al quadrato: ");
-        Console.WriteLine(sommaElementiArray(ElevaArrayAlQuadrato(usedArray)));
+        Console.WriteLine(sommaElementiArray(arrayQuadrato));
         Console.WriteLine("Chiudere il programma? Si | No");
         string answer = Console.ReadLine().ToLower();
         if (answer == "si" || answer == "yes" || answer == "s" || answer == "y")
